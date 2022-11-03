@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:refeicoes_curso/ui/category_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,6 +16,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: "Vamos Cozinhar?",
       home: MyHomePage(),
     );
   }
@@ -30,9 +32,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(title: const Text("Vamos cozinhar?")),
-        body: const Center(child: Text("Navegar é preciso!")),
-    );
+    return CategoriesScreen();
   }
 }
