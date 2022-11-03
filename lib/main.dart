@@ -18,6 +18,16 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: "Vamos Cozinhar?",
       home: MyHomePage(),
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        fontFamily: 'Raleway',
+        textTheme: ThemeData.light().textTheme.copyWith(
+          titleMedium: const TextStyle(
+            fontSize: 20,
+            fontFamily: 'RobotoCondensed'
+          )
+        )
+      ),
     );
   }
 }
