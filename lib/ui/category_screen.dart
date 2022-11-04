@@ -3,6 +3,7 @@ import 'package:refeicoes_curso/components/category_item.dart';
 import 'package:refeicoes_curso/data/dummy_data.dart';
 
 class CategoriesScreen extends StatelessWidget {
+  
   const CategoriesScreen({super.key});
 
   @override

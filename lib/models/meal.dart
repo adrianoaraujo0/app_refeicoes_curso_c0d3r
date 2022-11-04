@@ -1,7 +1,7 @@
 enum Complexity {
     simple,
     medium,
-    difficul,
+    difficult,
 }
 enum Cost {
   cheap,

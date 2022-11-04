@@ -30,23 +30,23 @@ class _MyAppState extends State<MyApp> {
         )
       ),
       routes: {
-        AppRoutes.HOME:(context) => const CategoriesScreen(),
-        AppRoutes.CATEGORIES_MEALS : (context) => const CategoriesMealsScreen(),
+        AppRoutes.home:(context) => const CategoriesScreen(),
+        AppRoutes.categoriesMeals : (context) => const CategoriesMealsScreen(),
       },
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+// class MyHomePage extends StatefulWidget {
+//   const MyHomePage({super.key});
 
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
+//   @override
+//   State<MyHomePage> createState() => _MyHomePageState();
+// }
 
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return const CategoriesScreen();
-  }
-}
+// class _MyHomePageState extends State<MyHomePage> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return const CategoriesScreen();
+//   }
+// }
