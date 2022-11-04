@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:refeicoes_curso/components/category_item.dart';
 import 'package:refeicoes_curso/data/dummy_data.dart';
 
