@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:refeicoes_curso/ui/categories_meals_screen.dart';
 import 'package:refeicoes_curso/ui/category_screen.dart';
 
 void main() {
@@ -17,7 +18,6 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Vamos Cozinhar?",
-      home: MyHomePage(),
       theme: ThemeData(
         primarySwatch: Colors.blue,
         fontFamily: 'Raleway',
@@ -28,6 +28,10 @@ class _MyAppState extends State<MyApp> {
           )
         )
       ),
+      home: MyHomePage(),
+      routes: {
+        '/categories-meals' : (context) => CategoriesMealsScreen(),
+      },
     );
   }
 }
