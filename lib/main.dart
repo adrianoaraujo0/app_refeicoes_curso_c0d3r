@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:refeicoes_curso/ui/settings.dart';
+import 'package:refeicoes_curso/ui/settings_screen.dart';
 import 'package:refeicoes_curso/ui/categories_meals_screen.dart';
 import 'package:refeicoes_curso/ui/category_screen.dart';
 import 'package:refeicoes_curso/ui/meal_detail_screen.dart';
@@ -36,7 +36,7 @@ class _MyAppState extends State<MyApp> {
         AppRoutes.home:(context) => const TabsScreen(),
         AppRoutes.categories_meals : (context) => const CategoriesMealsScreen(),
         AppRoutes.meal_detail :(context) => MealDetailScreen(),
-        AppRoutes.settings :(context) =>const Settings(),
+        AppRoutes.settings :(context) =>const SettingsScreen(),
       }
     );
   }
