@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:refeicoes_curso/components/main_drawer.dart';
 import 'package:refeicoes_curso/ui/category_screen.dart';
 import 'package:refeicoes_curso/ui/favorite_screen.dart';
 
@@ -30,6 +31,7 @@ class _TabsScreenState extends State<TabsScreen> {
         title: Text(_screens[_selectedScreenIndex]["title"] as String),
         centerTitle: true,
       ),
+      drawer: MainDrawer(),
       body: _screens[_selectedScreenIndex]["screen"] as Widget,
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Theme.of(context).primaryColor,
