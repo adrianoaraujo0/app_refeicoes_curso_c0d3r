@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:refeicoes_curso/ui/categories_meals_screen.dart';
 import 'package:refeicoes_curso/ui/category_screen.dart';
+import 'package:refeicoes_curso/ui/meal_detail_screen.dart';
 import 'package:refeicoes_curso/utils/app_routes.dart';
 
 void main() {
@@ -31,7 +32,8 @@ class _MyAppState extends State<MyApp> {
       ),
       routes: {
         AppRoutes.home:(context) => const CategoriesScreen(),
-        AppRoutes.categoriesMeals : (context) => const CategoriesMealsScreen(),
+        AppRoutes.categories_meals : (context) => const CategoriesMealsScreen(),
+        AppRoutes.meal_detail :(context) => const MealDetailScreen()
       },
     );
   }

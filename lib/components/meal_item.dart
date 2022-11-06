@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:refeicoes_curso/utils/app_routes.dart';
 import '../models/meal.dart';
 
 class MealItem extends StatelessWidget {
@@ -6,12 +7,18 @@ class MealItem extends StatelessWidget {
   final Meal meal;
   const MealItem({required this.meal ,super.key});
 
-  void _selectMeal(){}
+  void _selectMeal(BuildContext context){
+    Navigator.pushNamed(
+      context, 
+      AppRoutes.meal_detail,
+      arguments: meal
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: _selectMeal,
+      onTap: () => _selectMeal(context),
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15)
