@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:refeicoes_curso/data/dummy_data.dart';
 import 'package:refeicoes_curso/ui/settings_screen.dart';
 import 'package:refeicoes_curso/ui/categories_meals_screen.dart';
 import 'package:refeicoes_curso/ui/category_screen.dart';
 import 'package:refeicoes_curso/ui/meal_detail_screen.dart';
 import 'package:refeicoes_curso/ui/tabs_screen.dart';
 import 'package:refeicoes_curso/utils/app_routes.dart';
+
+import 'models/meal.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,6 +21,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+
+  List<Meal> _availableMeals = dummyMeals;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -34,7 +40,7 @@ class _MyAppState extends State<MyApp> {
       ),
       routes: {
         AppRoutes.home:(context) => const TabsScreen(),
-        AppRoutes.categories_meals : (context) => const CategoriesMealsScreen(),
+        AppRoutes.categories_meals : (context) =>  CategoriesMealsScreen(meals: _availableMeals,),
         AppRoutes.meal_detail :(context) => MealDetailScreen(),
         AppRoutes.settings :(context) =>const SettingsScreen(),
       }
