@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:refeicoes_curso/ui/categories_meals_screen.dart';
 import 'package:refeicoes_curso/ui/category_screen.dart';
+import 'package:refeicoes_curso/utils/app_routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +19,6 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Vamos Cozinhar?",
-      home: const MyHomePage(),
       theme: ThemeData(
         primarySwatch: Colors.blue,
         fontFamily: 'Raleway',
@@ -28,20 +29,10 @@ class _MyAppState extends State<MyApp> {
           )
         )
       ),
+      routes: {
+        AppRoutes.home:(context) => const CategoriesScreen(),
+        AppRoutes.categoriesMeals : (context) => const CategoriesMealsScreen(),
+      },
     );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return const CategoriesScreen();
   }
 }
