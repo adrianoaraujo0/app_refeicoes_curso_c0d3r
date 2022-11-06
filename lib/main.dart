@@ -33,7 +33,7 @@ class _MyAppState extends State<MyApp> {
       routes: {
         AppRoutes.home:(context) => const CategoriesScreen(),
         AppRoutes.categories_meals : (context) => const CategoriesMealsScreen(),
-        AppRoutes.meal_detail :(context) => const MealDetailScreen()
+        AppRoutes.meal_detail :(context) => MealDetailScreen()
       },
     );
   }
