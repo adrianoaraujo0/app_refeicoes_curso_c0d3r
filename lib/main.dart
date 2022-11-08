@@ -23,15 +23,17 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
 
   List<Meal> _availableMeals = dummyMeals;
+  Settings settings = Settings();
 
   void _filterMeals(Settings settings){
     setState(() {
+      this.settings = settings;
+   
       _availableMeals = dummyMeals.where((meal) {
           final filterGluten = settings.isGlutenFree && !meal.isGlutenFree;
           final filterLactose = settings.isLactoseFree && !meal.isLactoseFree; 
           final filterVegan = settings.isVegan && !meal.isVegan; 
           final filterVegetarian = settings.isVegetarian && !meal.isVegetarian;
-
           return !filterGluten && !filterLactose && filterVegan && !filterVegetarian;
       }).toList();
     });
@@ -53,9 +55,9 @@ class _MyAppState extends State<MyApp> {
       ),
       routes: {
         AppRoutes.home:(context) => const TabsScreen(),
-        AppRoutes.categories_meals : (context) =>  CategoriesMealsScreen(meals: _availableMeals,),
+        AppRoutes.categories_meals : (context) =>  CategoriesMealsScreen(meals: _availableMeals),
         AppRoutes.meal_detail :(context) => MealDetailScreen(),
-        AppRoutes.settings :(context) => SettingsScreen(onSettingsChanged: _filterMeals),
+        AppRoutes.settings :(context) => SettingsScreen(settings: settings ,onSettingsChanged: _filterMeals),
       }
     );
   }
