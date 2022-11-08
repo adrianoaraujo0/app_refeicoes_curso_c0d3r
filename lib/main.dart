@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:refeicoes_curso/data/dummy_data.dart';
+import 'package:refeicoes_curso/models/settings.dart';
 import 'package:refeicoes_curso/ui/settings_screen.dart';
 import 'package:refeicoes_curso/ui/categories_meals_screen.dart';
-import 'package:refeicoes_curso/ui/category_screen.dart';
 import 'package:refeicoes_curso/ui/meal_detail_screen.dart';
 import 'package:refeicoes_curso/ui/tabs_screen.dart';
 import 'package:refeicoes_curso/utils/app_routes.dart';
@@ -24,6 +24,19 @@ class _MyAppState extends State<MyApp> {
 
   List<Meal> _availableMeals = dummyMeals;
 
+  void _filterMeals(Settings settings){
+    setState(() {
+      _availableMeals = dummyMeals.where((meal) {
+          final filterGluten = settings.isGlutenFree && !meal.isGlutenFree;
+          final filterLactose = settings.isLactoseFree && !meal.isLactoseFree; 
+          final filterVegan = settings.isVegan && !meal.isVegan; 
+          final filterVegetarian = settings.isVegetarian && !meal.isVegetarian;
+
+          return !filterGluten && !filterLactose && filterVegan && !filterVegetarian;
+      }).toList();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -42,7 +55,7 @@ class _MyAppState extends State<MyApp> {
         AppRoutes.home:(context) => const TabsScreen(),
         AppRoutes.categories_meals : (context) =>  CategoriesMealsScreen(meals: _availableMeals,),
         AppRoutes.meal_detail :(context) => MealDetailScreen(),
-        AppRoutes.settings :(context) =>const SettingsScreen(),
+        AppRoutes.settings :(context) => SettingsScreen(onSettingsChanged: _filterMeals),
       }
     );
   }

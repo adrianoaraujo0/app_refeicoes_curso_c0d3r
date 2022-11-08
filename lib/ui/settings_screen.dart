@@ -3,8 +3,11 @@ import 'package:refeicoes_curso/components/main_drawer.dart';
 import 'package:refeicoes_curso/models/settings.dart';
 
 class SettingsScreen extends StatefulWidget {
-  const SettingsScreen({super.key});
 
+  final Function(Settings) onSettingsChanged;
+
+  const SettingsScreen({required this.onSettingsChanged, super.key});
+ 
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
 }
@@ -14,11 +17,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
 var settings = Settings();
 
   Widget _createSwitch(String title, String subtitle, bool value, Function(bool)? onChanged){
-    return SwitchListTile(
+    return SwitchListTile.adaptive(
       title: Text(title),
       subtitle: Text(subtitle),
       value: value,
-      onChanged: onChanged
+      onChanged: (value) {
+        onChanged!(value);
+        widget.onSettingsChanged(settings);
+      }
     );
   }
 
